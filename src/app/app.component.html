@@ -11,7 +11,22 @@
           *ngFor="let odd of oddNumbers">{{odd}}
           </li>
         </div>
-        <div  *ngIf="!onlyOdd">
+        <!-- <div  *ngIf="!onlyOdd">
+          <li class="list-group-item" 
+          [ngClass]="{odd: even % 2 !==0}"
+          [ngStyle]="{backgroundColor:even % 2 !== 0 ? 'yellow' : 'transparent'}"
+          *ngFor="let even of evenNumbers">{{even}}
+          </li>
+        </div>
+
+        <ng-template [ngIf]='!onlyOdd'>
+          <li class="list-group-item" 
+          [ngClass]="{odd: even % 2 !==0}"
+          [ngStyle]="{backgroundColor:even % 2 !== 0 ? 'yellow' : 'transparent'}"
+          *ngFor="let even of evenNumbers">{{even}}
+          </li>
+        </ng-template> -->
+        <div  *appUnless="onlyOdd">
           <li class="list-group-item" 
           [ngClass]="{odd: even % 2 !==0}"
           [ngStyle]="{backgroundColor:even % 2 !== 0 ? 'yellow' : 'transparent'}"
@@ -21,7 +36,10 @@
       </ul>
      
       <p appBasicHigghlight>directive checking</p>
-      <p appBetterHighligh>directive checking</p>
+      <p [appBetterHighligh] ='"red"'
+      defaultColor="yellow"
+      
+      >directive checking</p>
     </div>
   </div>
 </div>
